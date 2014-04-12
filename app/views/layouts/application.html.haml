@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %title Starter Template for Bootstrap
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    /[if lt IE 9]
+      <haml:loud> javascript_include_tag &amp;quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&amp;quot;, &amp;quot;https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js&amp;quot; </haml:loud>
+    %link{href:'http://fonts.googleapis.com/css?family=Source+Sans+Pro', rel:'stylesheet', type:'text/css'}
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    - flash.each do |name, msg|
+      = content_tag :div, :class => "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable" do
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+        = msg
+    = yield

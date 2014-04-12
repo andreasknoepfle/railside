@@ -1,0 +1,30 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to @project.name, @project , :class => "navbar-brand"
+  .collapse.navbar-collapse
+    %ul.nav.navbar-nav
+      %li
+        = link_to projects_path do
+          %span.glyphicon.glyphicon-list-alt
+          Back
+      %li
+        = link_to edit_project_path(@project) do
+          %span.glyphicon.glyphicon-pencil
+          Edit
+
+#ide
+  #ide-left
+    = render "directory", directory: @directory
+  #ide-right
+    %ul.nav.nav-tabs#tabs
+      %li.active
+        %a#pin_file{:href=>"#"}
+          %i.fa.fa-bookmark
+          Pin File
+          %span#editor_filename
+          %span.dirty

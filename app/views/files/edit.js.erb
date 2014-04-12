@@ -1,0 +1,20 @@
+// only for the first time
+codemirror.setOption("readOnly",false);
+
+// Swap documents to new document
+
+doc = CodeMirror.Doc("<%=j @file.html_safe%>","<%=j @mode.html_safe%>")
+$('#tabs li.active').data("document",codemirror.swapDoc(doc))
+
+// Make old tab inactive
+$('#tabs li').removeClass('active');
+
+// Set new metadata for main pin
+
+$('#tabs li').first().data("path","<%=j params[:path].html_safe%>");
+$('#tabs li').first().data("name","<%=j File.basename(params[:path]).html_safe%>");
+
+// make new main pin active and set filename
+
+$('#tabs li').first().addClass('active');
+$('#tabs li #editor_filename').html(' | <%=j File.basename(params[:path]).html_safe%>');

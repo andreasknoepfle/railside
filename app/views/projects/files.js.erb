@@ -1,0 +1,5 @@
+node = $("#toggle<%= j dir_id(@directory[:path])%>");
+if (node.find("ul").length == 0) {
+	node.append("<%= j render 'directory', directory: @directory %>");
+} 
+

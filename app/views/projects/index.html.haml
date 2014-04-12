@@ -1,0 +1,22 @@
+.container
+  .page-header
+    = link_to new_project_path, :class => 'btn btn-primary' do
+      %span.glyphicon.glyphicon-plus
+      New Project
+    %h1 Listing projects
+  .table-responsive
+    %table.table.table-striped.table-bordered.table-hover
+      %thead
+        %tr
+          %th Name
+          %th Path
+          %th
+          %th
+          %th
+      %tbody
+        = content_tag_for(:tr, @projects) do |project|
+          %td= project.name
+          %td= project.path
+          %td= link_to 'Show', project, data: { "no-turbolink" =>  true }
+          %td= link_to 'Edit', edit_project_path(project)
+          %td= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }

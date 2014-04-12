@@ -1,0 +1,11 @@
+%ul.filetree
+  - directory[:folders].each do |child|
+    %li.folder{:id =>  "toggle#{dir_id(child[:path])}" }
+      = link_to files_project_path(path: child[:path]), :remote => true do
+        %i.fa.fa-folder-o
+        = child[:name]      
+  - directory[:files].each do |child|
+    %li
+      = link_to edit_file_path(path: child[:path]), :remote => true do
+        %i.fa.fa-file
+        = child[:name]
