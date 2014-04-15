@@ -5,7 +5,8 @@ class ModeMapper
     "application/x-ruby" => "text/x-ruby",
     "rdoc" => "markdown",
     "coffee" => "coffeescript",
-    "scss" => "sass"
+    "scss" => "sass",
+    "application/x-yaml" => "yaml"
     }
     
   BASENAME_MAPPINGS = {

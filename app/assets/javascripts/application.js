@@ -23,8 +23,14 @@
 //= require codemirror/modes/javascript
 //= require codemirror/modes/coffeescript
 //= require codemirror/modes/yaml
-
 //= require codemirror/modes/markdown
+
+//= require codemirror/addons/edit/matchbrackets
+//= require codemirror/addons/edit/trailingspace
+//= require codemirror/addons/dialog/dialog
+//= require codemirror/addons/search/searchcursor
+//= require codemirror/addons/search/search
+
 //= require bootstrap
 //= require splitter
 //= require projects

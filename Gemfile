@@ -31,14 +31,13 @@ gem 'font-awesome-sass'
 
 group :assets do
   gem 'bootstrap-sass'
-  
 end
 
 gem 'codemirror-rails'
 
 group :development do
   gem 'byebug'
-  gem 'erb2haml'     
+  gem 'erb2haml'
   gem 'bootstrap-generators'
   gem 'better_errors'
   gem 'binding_of_caller'
