@@ -32,6 +32,8 @@
 //= require codemirror/addons/search/searchcursor
 //= require codemirror/addons/search/search
 //= require codemirror/addons/dialog/dialog
+//= require codemirror/addons/hint/show-hint
+//= require codemirror/addons/hint/anyword-hint
 
 //= require codemirror/keymaps/sublime.js
 

@@ -12,6 +12,7 @@
  *= require codemirror
  *= require codemirror/themes/pastel-on-dark
  *= require codemirror/addons/dialog/dialog
+ *= require codemirror/addons/hint/show-hint
  *= require font-awesome
  *= require_tree .
  */

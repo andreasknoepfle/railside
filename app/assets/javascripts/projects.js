@@ -12,11 +12,17 @@ var codemirror_options = {
         keyMap: "sublime",
         tabSize: 2,
         undoDepth: 1000,
-        autoCloseBrackets: true
+        autoCloseBrackets: true,
+        extraKeys: {"Ctrl-Space": "autocomplete"}
      };
 
 $(document).ready(function () {
 
+  
+  CodeMirror.commands.autocomplete = function(cm) {
+    CodeMirror.showHint(cm, CodeMirror.hint.anyword);
+  };
+    
   // Set the browser
   CodeMirror.commands.save = function() {
   	if($('#tabs li.active').data("path") && !codemirror.getDoc().isClean()) {  
