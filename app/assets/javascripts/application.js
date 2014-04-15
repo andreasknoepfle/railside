@@ -26,10 +26,14 @@
 //= require codemirror/modes/markdown
 
 //= require codemirror/addons/edit/matchbrackets
+//= require codemirror/addons/edit/closebrackets
+//= require codemirror/addons/comment/comment
 //= require codemirror/addons/edit/trailingspace
-//= require codemirror/addons/dialog/dialog
 //= require codemirror/addons/search/searchcursor
 //= require codemirror/addons/search/search
+//= require codemirror/addons/dialog/dialog
+
+//= require codemirror/keymaps/sublime.js
 
 //= require bootstrap
 //= require splitter

@@ -3,6 +3,18 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 var codemirror = null;
 
+var codemirror_options = {
+        readOnly: true,
+        lineNumbers: true,
+        theme: "pastel-on-dark",
+        matchBrackets:true,
+        showTrailingSpace: true,
+        keyMap: "sublime",
+        tabSize: 2,
+        undoDepth: 1000,
+        autoCloseBrackets: true
+     };
+
 $(document).ready(function () {
 
   // Set the browser
@@ -33,18 +45,16 @@ $(document).ready(function () {
 
 	        return false;
 	    }
+	    if((e.which == '70') && (e.ctrlKey || e.metaKey)) {
+	    	e.preventDefault(); 
+	    	return false;
+	    }
 	    return true;
-	});
+  });
 
   $('#ide-right').each( function(){
-      codemirror = CodeMirror( this,
-      {
-        readOnly: true,
-        lineNumbers: true,
-        theme: "pastel-on-dark",
-        matchBrackets:true,
-        showTrailingSpace: true
-      });
+      codemirror = CodeMirror( this, codemirror_options
+      );
       codemirror.on("change", function(instance,object) {
       	if(instance.getDoc().isClean()) {
       		$('#tabs li.active a .dirty').html('');

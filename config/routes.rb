@@ -5,4 +5,5 @@ Railside::Application.routes.draw do
     end
   end
   resource :file
+  root to: "projects#index"
 end

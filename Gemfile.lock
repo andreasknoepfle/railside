@@ -39,7 +39,7 @@ GEM
     byebug (2.7.0)
       columnize (~> 0.3)
       debugger-linecache (~> 1.2)
-    codemirror-rails (3.22)
+    codemirror-rails (4.0)
       railties (>= 3.0, < 5)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -60,7 +60,7 @@ GEM
     execjs (2.0.2)
     font-awesome-sass (4.0.3.1)
       sass (~> 3.2)
-    haml (4.0.5)
+    haml (4.1.0.beta.1)
       tilt
     hike (1.2.3)
     hpricot (0.8.6)
