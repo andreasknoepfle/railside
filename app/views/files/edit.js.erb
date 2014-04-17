@@ -1,20 +1,41 @@
 // only for the first time
 codemirror.setOption("readOnly",false);
 
-// Swap documents to new document
+var active_document = null;
 
-doc = CodeMirror.Doc("<%=j @file.html_safe%>","<%=j @mode.html_safe%>")
-$('#tabs li.active').data("document",codemirror.swapDoc(doc))
+// check if document exists already
+$('#tabs li').each(function( index ) {
+	if($(this).data("path") == "<%=j params[:path].html_safe%>" ) {
+		active_document = $(this);
+	}
+});
 
-// Make old tab inactive
-$('#tabs li').removeClass('active');
+if(active_document) {
+	if(!active_document.hasClass("active")) {
+		// Just swap to the document
+		$('#tabs li.active').data("document",codemirror.swapDoc(active_document.data("document")));
+		$('#tabs li').removeClass('active');
+		active_document.addClass('active');
+	}
+} else {
+	// Swap documents to new document if document not active
+	doc = CodeMirror.Doc("<%=j @file.html_safe%>","<%=j @mode.html_safe%>")
+	$('#tabs li.active').data("document",codemirror.swapDoc(doc))
+	
+	// Set new metadata for main pin
+	$('#tabs li').first().data("path","<%=j params[:path].html_safe%>");
+	$('#tabs li').first().data("name","<%=j File.basename(params[:path]).html_safe%>");
+	
+	// Set title of main pin
+	$('#tabs li #editor_filename').html(' | <%=j File.basename(params[:path]).html_safe%>');
+	
+	
+	$('#tabs li').removeClass('active');
+	$('#tabs li').first().addClass('active');
+	
+}
 
-// Set new metadata for main pin
 
-$('#tabs li').first().data("path","<%=j params[:path].html_safe%>");
-$('#tabs li').first().data("name","<%=j File.basename(params[:path]).html_safe%>");
 
-// make new main pin active and set filename
 
-$('#tabs li').first().addClass('active');
-$('#tabs li #editor_filename').html(' | <%=j File.basename(params[:path]).html_safe%>');
+
