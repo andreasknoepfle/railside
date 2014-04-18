@@ -4,6 +4,8 @@ Railside::Application.routes.draw do
       get 'files'
     end
   end
-  resource :file
+  resource :file do 
+    get 'listen'
+  end
   root to: "projects#index"
 end

@@ -18,6 +18,16 @@ var codemirror_options = {
 
 $(document).ready(function () {
 
+  if( $(".project").length != 0 ) {
+  	if($(".project").data("path")) {
+  		var es = new EventSource('/file/listen?path='+encodeURIComponent($(".project").data("path")));
+
+	  	es.onmessage = function(e) {
+	    	if (window.console) console.log(event.data);
+	  	};
+  	}
+  }
+  
   
   CodeMirror.commands.autocomplete = function(cm) {
     CodeMirror.showHint(cm, CodeMirror.hint.anyword);

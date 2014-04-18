@@ -25,15 +25,19 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'haml'
+gem 'font-awesome-sass'
 
 gem 'mimemagic'
-gem 'font-awesome-sass'
+gem 'codemirror-rails'
+
+gem 'sse-rails'
+gem 'listen'
 
 group :assets do
   gem 'bootstrap-sass'
 end
 
-gem 'codemirror-rails'
+
 
 group :development do
   gem 'byebug'
@@ -60,4 +64,4 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-gem 'thin'
+gem 'puma'

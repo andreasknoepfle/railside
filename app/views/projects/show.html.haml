@@ -5,7 +5,8 @@
       %span.icon-bar
       %span.icon-bar
       %span.icon-bar
-    %span.navbar-brand= @project.name
+    %span.navbar-brand.project{ :data => { :path => @project.path}}
+      = @project.name
   .collapse.navbar-collapse
     %ul.nav.navbar-nav
       %li
