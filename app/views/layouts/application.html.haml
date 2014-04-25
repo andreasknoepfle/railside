@@ -8,7 +8,7 @@
     %meta{:content => "", :name => "author"}/
     /[if lt IE 9]
       <haml:loud> javascript_include_tag &amp;quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&amp;quot;, &amp;quot;https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js&amp;quot; </haml:loud>
-    %link{href:'http://fonts.googleapis.com/css?family=Source+Sans+Pro', rel:'stylesheet', type:'text/css'}
+    -#%link{href:'http://fonts.googleapis.com/css?family=Source+Sans+Pro', rel:'stylesheet', type:'text/css'}
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags

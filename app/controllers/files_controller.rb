@@ -3,7 +3,7 @@ require 'rails/sse'
 class FilesController < ApplicationController
   include ActionController::Live
   include Rails::SSE
-  
+
   def edit
     f = File.open(params[:path], "r")
 
@@ -24,18 +24,19 @@ class FilesController < ApplicationController
     f = File.open(params[:path], "w") { |file| file.write(params[:content]) }
     render :json => true
   end
-  
+
   def listen
-    
+
     stream do |channel|
       listener = Listen.to(params[:path]) do |modified, added, removed|
-        channel.post({added: added, modified: modified, removed: removed }.to_json)
+        channel.post({added: added, modified: modified, removed: removed })
       end
-      debugger
-      listener.start
-      while channel.ping! do 
+      listener.run
+      while channel.ping! do
         sleep 1
       end
+      # ????? TODO Cleanup
+      listener.stop
     end
   end
 

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+
 //= require codemirror
 //= require codemirror/modes/ruby
 //= require codemirror/modes/xml
@@ -38,8 +39,14 @@
 //= require codemirror/keymaps/sublime.js
 
 //= require bootstrap
-//= require splitter
-//= require projects
+//= require jquery.splitter
+
+//= require editor
+//= require tabs
+//= require stream
+
+
+
 
 
 jQuery.browser = {};
